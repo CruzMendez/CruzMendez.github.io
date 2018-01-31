@@ -5,3 +5,38 @@ body{
   color:white;
 }
 
+.title-text {
+	font-family: 'Roboto';
+	color: #a36ab7;
+	font-size: 30px;
+	font-weight: 100;
+	letter-spacing: 12px;
+
+}
+
+.text-hide, .div-hide {
+	visibility: hidden;
+}
+
+.text-vis, .div-vis {
+	visibility: visible;
+}
+/*
+
+.font-grow{
+    letter-spacing: 2px;
+    -webkit-animation: mymove 250s infinite;
+    animation: mymove 250s infinite;
+	NOTE; CHROME SAFARI OPERA
+}
+*/
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+    50% {letter-spacing: 50px;}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+    50% {letter-spacing: 50px;}
+}
