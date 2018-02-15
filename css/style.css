@@ -18,17 +18,41 @@ body::-webkit-scrollbar-track {
  
 body::-webkit-scrollbar-thumb {
   background-color: white;
-  outline: 1px dashed slategrey;
+  outline: 1px solid slategrey;
 }
 
+.enter {
+	background-color: transparent;
+	font-family: 'Roboto';
+	color: #a36ab7;
+	font-size: 30px;
+	border: none;
+}
+
+.enter-name{
+	font-family: 'Roboto';
+	color: #959595;
+	font-size: 30px;
+	font-weight: 100;
+	border: none;
+	padding-bottom: 10px;
+}
+
+.enter-port{
+	font-family: 'Roboto';
+	color: #959595;
+	font-size: 20px;
+/*	font-weight: 100;*/
+	border: none;
+	letter-spacing: 11.5px;
+}
 
 .title-text {
 	font-family: 'Roboto';
 	color: #a36ab7;
 	font-size: 30px;
-	font-weight: 100;
+/*	font-weight: 100;*/
 	letter-spacing: 12px;
-
 }
 
 .text-hide, .div-hide {
@@ -40,26 +64,119 @@ body::-webkit-scrollbar-thumb {
 }
 
 #services{
-	width: auto;
-	flex-wrap: nowrap;
-	height: 200px;
+	position: absolute;
+	height: 40%; 
+	width: 100%;
+	margin: 20px auto;
+	flex-wrap: wrap;
+	height: 400px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	line-height: 50px;
+	align-items: space-between;
+	z-index: 10;
 }
-/*
 
-.font-grow{
-    letter-spacing: 2px;
-    -webkit-animation: mymove 250s infinite;
-    animation: mymove 250s infinite;
-	NOTE; CHROME SAFARI OPERA
+.service1{
+	padding: 20px;
+	margin: 20px;
+	align-items: flex-end;
+	width: 200px;
+	background-color: #303030;
+	font-family: 'Roboto';
+	font-weight: 100;
+	font-size: 50px;
+	overflow: hidden;
+}
+.service2{
+	padding: 20px;
+	width: 480px;
+	margin: 20px;
+	background-color: #303030;
+	font-family: 'Roboto';
+	font-weight: 100;
+	font-size: 40px;
+	overflow: hidden;
+}
+
+#services-behind{
+	position: absolute;
+	height: 40%; 
+	width: 100%;
+	margin: 20px auto;
+	flex-wrap: wrap;
+	height: 400px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+/*	line-height: 50px;*/
+	align-items: space-between;
+/*	visibility: hidden;*/
+}
+
+.service1-behind{
+	padding: 20px;
+	margin: 20px;
+	align-items: flex-end;
+	width: 200px;
+/*	background-color: #303030;*/
+	font-family: 'Roboto';
+	font-weight: 100;
+	font-size: 20px;
+	line-height: 25px;
+	overflow: hidden;
+/*	visibility: hidden;*/
+}
+.service2-behind{
+/*	color: #3f3f3f;*/
+	padding: 20px;
+	width: 480px;
+	margin: 20px;
+/*	background-color: #303030;*/
+	font-family: 'Roboto';
+	font-weight: 100;
+	font-size: 25px;
+	line-height: 40px;
+	overflow: hidden;
+/*	visibility: hidden;*/
+}
+
+.purple{
+	color: #a36ab7;
+	font-size: 60px;
+}
+
+.service1:hover, .service2:hover{
+	visibility: hidden;
+}
+
+/*
+.service1-behind:hover, .service2-behind:hover{
+	color: white;
 }
 */
 
+.font-grow-slow{
+    letter-spacing: 2px;
+    -webkit-animation: mymove 250s infinite;
+    animation: mymove 250s infinite;
+/*	NOTE; CHROME SAFARI OPERA*/
+}
+
+.font-grow-fast{
+    letter-spacing: 2px;
+    -webkit-animation: mymove 25s infinite;
+    animation: mymove 25s infinite;
+/*	NOTE; CHROME SAFARI OPERA*/
+}
+
 /* Chrome, Safari, Opera */
 @-webkit-keyframes mymove {
-    50% {letter-spacing: 50px;}
+    80% {letter-spacing: 80px;}
 }
 
 /* Standard syntax */
 @keyframes mymove {
-    50% {letter-spacing: 50px;}
+    80% {letter-spacing: 80px;}
 }

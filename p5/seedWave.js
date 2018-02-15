@@ -1,36 +1,68 @@
 var canvas;
-var seedCount = 6;
+var seedCount = 8;
 var seedOrigin = 0;
 var seedPosition = 0;
 var seeds = [];
 var currentPage;
-var pageTitle = ["services", "skills", "work", "about"];
+var pageTitle = ["services", "skills", "work", "more work", "stuff", "other stuff","the designer", "bye, bye"];
 var pageNumber = 0;
 var titleText;
 var subTitle;
+var enter;
+var bground;
+var h3;
+var h1;
+var underline = 30;
+var rectFill = 30;
+var homeRect;
+var cord2;
+
 
 
 function setup() {
     canvas = createCanvas(innerWidth,innerHeight); 
-    canvas.position(0,innerHeight-400);
+//    canvas.position(0,innerHeight-400);
 	frameRate(20);
-    for (var i=0; i<seedCount; i++) {
-        seedOrigin = seedOrigin + 35;
-        seeds[i] = new Seed();
+	for (var i=0; i<seedCount; i++) {
+		seedOrigin = seedOrigin + 35;
+		seeds[i] = new Seed();
 		seedPosition++;
     };
-	addText();
+	
+	h3 = createElement('h3','cruz mendez');
+	h3.addClass('enter-name');
+	h3.position(20,(innerHeight/2)-60);
+	h1 = createElement('h1','portfolio');
+	h1.addClass('enter-port');
+	h1.position(20,(innerHeight/2)-24);
+	enter = createButton("ENTER");
+	enter.position(12,innerHeight/2);
+	enter.addClass('enter');
+	enter.addClass('font-grow-fast');
+	enter.mousePressed(addText);
 //	titleText = createP(pageTitle[pageNumber]);
 //	titleText.position(30,innerHeight-170);
 //	titleText.addClass('title-text');
 	
 };
 
+
+
 function addText() {
+	var divServ = select('#services');
+	var divServ2 = select('#services-behind');
+	underline = 255;
+	h1.remove();
+	h3.remove();
+	enter.remove();
 	titleText = createP(pageTitle[pageNumber]);
-	titleText.position(30,innerHeight-170);
+	titleText.position(20,innerHeight-165);
 	titleText.addClass('title-text');
-//	titleText.addClass('text-hide');
+	titleText.addClass('font-grow-slow');
+	rectFill = 63;
+	divServ.removeClass('div-hide');
+	divServ.addClass('div-vis');
+	divServ2.removeClass('div-hide');
 };
 
 function windowResized() {
@@ -53,8 +85,10 @@ function mousePressed() {
 
 
 function draw() {
-//	background(0);
 	clear();
+	noStroke();
+	fill(rectFill);
+	rect(0,0,innerWidth,innerHeight);
 	textSize(35);
 //	textFont('Calibri');
 	fill(179,114,201,195);
@@ -63,32 +97,33 @@ function draw() {
 //	titleText = createP(pageTitle[0]);
 //	titleText.position(30,530);
 //	titleText.addClass('title-text');
-
 	for (var i=0; i<seeds.length; i++) {
 		seeds[i].display();
-		seeds[i].wave();
-		seeds[i].highlight();
-//		seeds[i].changeTitle();
+		if (underline === 255) {
+			seeds[i].wave();
+			seeds[i].highlight();
+	//		seeds[i].changeTitle();
+		};
 	}; 
 	
-	stroke(255);
-	line(30,260,260,260)
+//	stroke(underline);
+//	line(20,innerHeight-90,((innerWidth/2)-160),innerHeight-90)
 //	line(seeds[9].x,seeds[9].y,250,260);
-
+//	cord2 = line(seeds[0].x, innerHeight-130, seeds[0].x, seeds[0].y);
 	noStroke();
-	fill(179,114,201,80);
-	ellipse(seeds[0].x,seeds[0].y,40,40);
+//	fill(179,114,201,80);
+//	ellipse(seeds[0].x,seeds[0].y,40,40);
 //	ellipse(seeds[4].x,seeds[4].y,40,40);
 //	ellipse(seeds[9].x,seeds[9].y,40,40);
 //	ellipse(seeds[seeds.length-1].x,seeds[seeds.length-1].y,40,40);
 	for (var v = 0; v < seeds.length; v++) {
 		var spot = 260;
-		fill(0,seeds[v].y - 300);
-		ellipse(spot+(v*35),365,20,8);
+		fill(0,innerHeight-seeds[v].y-500);
+		ellipse(seeds[v].x,innerHeight-26,20,8);
 	};
+//	stroke(underline, 200);
+//	ellipse(seeds[0].x,seeds[0].y,20,20)
 	
-	stroke(255,200);
-	ellipse(seeds[0].x,seeds[0].y,20,20);
 };
 
 
@@ -96,19 +131,25 @@ function draw() {
 
 function Seed() {
 	this.inDex = 0 + seedPosition;
-	this.amplitude = 1;
-	this.period = random(90,100);
-    this.x = 225+seedOrigin;
-    this.y = 310;
+	this.amplitude = .6;
+	this.period = random(150,155);
+    this.x = (innerWidth/2-(160))+seedOrigin;
+    this.y = innerHeight-65;
 	this.diam = 20;
 	this.seedStroke = 63;
-	this.cord1 = 260;
-    this.display = function() {
+	this.cord1 = undefined;
+	this.cord3 = undefined;
+    this.display = function() {		
         stroke(this.seedStroke);
         fill(150,95);
-        ellipse(this.x, this.y, this.diam, this.diam);	
-		stroke(255);
-		line(this.cord1, this.y, 260, 260);
+        ellipse(this.x, this.y, this.diam, this.diam);
+		stroke(underline);
+		line(this.x, innerHeight-130, this.cord3, this.y);
+		line(20, innerHeight-130, this.cord3, innerHeight-130);
+		fill(0,0);
+		stroke(underline,40)
+		ellipse(seeds[0].x,seeds[0].y,20,20);
+		this.cord1 = line(20, innerHeight-130, seeds[0].x, innerHeight-130);
 	};
 	this.wave = function () {
 		this.y = this.y + this.amplitude * sin((frameCount/this.period)*TWO_PI);
@@ -126,8 +167,8 @@ function Seed() {
 		if (d < 14) {
 			for(var i = 0; i < seeds.length; i++) {
 				this.seedStroke = 255;
-				seeds[i].cord1 = undefined;
-				this.cord1 = this.x;
+				seeds[i].cord3 = undefined;
+				this.cord3 = this.x;
 				pageNumber = this.inDex;
 				titleText.addClass('text-hide');
 				addText();
