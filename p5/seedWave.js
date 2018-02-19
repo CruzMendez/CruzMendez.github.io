@@ -12,8 +12,8 @@ var enter;
 var bground;
 var h3;
 var h1;
-var underline = 30;
-var rectFill = 30;
+var underline = 40;
+var rectFill = 40;
 var homeRect;
 var cord2;
 
@@ -21,7 +21,7 @@ var cord2;
 
 function setup() {
     canvas = createCanvas(innerWidth,innerHeight); 
-//    canvas.position(0,innerHeight-400);
+//    canvas.position(0,innerHeight-200);
 	frameRate(20);
 	for (var i=0; i<seedCount; i++) {
 		seedOrigin = seedOrigin + 35;
@@ -59,11 +59,12 @@ function addText() {
 	titleText.position(20,innerHeight-165);
 	titleText.addClass('title-text');
 	titleText.addClass('font-grow-slow');
-	rectFill = 63;
 	divServ.removeClass('div-hide');
 	divServ.addClass('div-vis');
 	divServ2.removeClass('div-hide');
+	rectFill = 0;
 };
+
 
 function windowResized() {
 	resizeCanvas(innerWidth, innerHeight);
@@ -75,6 +76,7 @@ function mousePressed() {
 	};
 };
 
+
 //function visSet() {
 //	var skillDiv = select('#skills');
 //	var divServ = select('#services');
@@ -85,7 +87,8 @@ function mousePressed() {
 
 
 function draw() {
-	clear();
+	background(0);
+//	clear();
 	noStroke();
 	fill(rectFill);
 	rect(0,0,innerWidth,innerHeight);
@@ -105,7 +108,7 @@ function draw() {
 	//		seeds[i].changeTitle();
 		};
 	}; 
-	
+
 //	stroke(underline);
 //	line(20,innerHeight-90,((innerWidth/2)-160),innerHeight-90)
 //	line(seeds[9].x,seeds[9].y,250,260);

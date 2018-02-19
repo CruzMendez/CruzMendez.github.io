@@ -79,21 +79,29 @@ body::-webkit-scrollbar-thumb {
 }
 
 .service1{
+	transition: opacity 1.2s ease-in-out;
+    -moz-transition: opacity 1.2s ease-in-out;
+    -webkit-transition: opacity 1.2s ease-in-out;
 	padding: 20px;
 	margin: 20px;
 	align-items: flex-end;
 	width: 200px;
-	background-color: #303030;
+/*	background-color: #303030;*/
+	background-color: black;
 	font-family: 'Roboto';
 	font-weight: 100;
 	font-size: 50px;
 	overflow: hidden;
 }
 .service2{
+	transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out;
 	padding: 20px;
 	width: 480px;
 	margin: 20px;
-	background-color: #303030;
+/*	background-color: #303030;*/
+	background-color: black;
 	font-family: 'Roboto';
 	font-weight: 100;
 	font-size: 40px;
@@ -148,7 +156,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .service1:hover, .service2:hover{
-	visibility: hidden;
+	opacity: 0;
+    transition: opacity .35s ease-in-out;
+    -moz-transition: opacity .35s ease-in-out;
+    -webkit-transition: opacity .35s ease-in-out;
 }
 
 /*
