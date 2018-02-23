@@ -9,34 +9,81 @@
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT|Roboto:100,400" rel="stylesheet">
+<!--  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+
 </head>
 <body>
+	
+<!-----	PAGE 0 - SERVICES------>
 	<div id="services" class="div-hide">
-		<div class="service1">
-			<p>UI<span class="purple">|</span>UX</p>
+		<div class="service1 services-1A">
+			<p style="text-align: center">UI<span class="purple">|</span>UX</p>
 		</div>
-		<div class="service1">
-			<p>Web<span class="purple">.</span>Dev</p>
+		<div class="service1 services-1B">
+			<p style="text-align: center">Web<span class="purple">.</span>Dev</p>
 		</div>
 		<div class="service2">
-			<p>Product<span class="purple">/</span>Feature Design</p>
+			<p style="text-align: center">Product<span class="purple">/</span>Feature Design</p>
 		</div>
 	</div>
 	
 	<div id="services-behind" class="div-hide">
 		<div class="service1-behind">
 			<p>New site builds and<br/>
-			website remodel.</p>
+			website remodels.</p>
 		</div>
 		<div class="service1-behind">
-			<p>Responsive desktop<br/> and mobile site design</p>
+			<p>Responsive desktop<br/> and mobile site design.</p>
 		</div>
 		<div class="service2-behind">
-			<p>Take your site or app to the next level with new features.</p>
+			<p>Take your site or app to the next level<br/> with new features.</p>
+		</div>
+	</div>
+
+<!-----	PAGE 1  - ILLUSTRATIONS------->
+	<div id="illustrations" class="div-hide">
+		
+		<div class="twoD-text" >
+			<p class="twoD-text" ><span class="purple2">&bull;</span> Animation</p>
+			<p class="twoD-text"><span class="purple2">&bull;</span> Storyboarding</p>
+			<p class="twoD-text"><span class="purple2">&bull;</span> "Loading-state" Visuals</p>
+			<p class="twoD-text"><span class="purple2">&bull;</span> Scalable Vector Graphics [SVGs]</p>
+			<p class="twoD-text"><span class="purple2">&bull;</span> Logo Creation + Branding</p>
+		</div>
+		<div class="gif-gallery  ">
+			<img class="gif1 myslides" src="./img/gif1.gif">
+			<img class="gif2 myslides" src="./img/gif2.gif">
+			<img class="gif3 myslides" src="./img/gif3.gif">
+		
+			<button class="w3-button" onclick="plusDivs(1)">&#10095;</button>
 		</div>
 	</div>
 	
+	<script>
+		var slideIndex = 1;
+		showDivs(slideIndex);
 
+		function plusDivs(n) {
+			showDivs(slideIndex += n);
+		}
+
+		function showDivs(n) {
+		  var i;
+		  var x = document.getElementsByClassName("mySlides");
+		  if (n > x.length) {
+			  slideIndex = 1
+		  }    
+		  if (n < 1) {
+			  slideIndex = x.length
+		  }
+		  for (i = 0; i < x.length; i++) {
+			 x[i].style.display = "none";  
+		  }
+		  x[slideIndex-1].style.display = "block";  
+		}
+	</script>
+	
+<!-----	PAGE 2  - MODELING ------->
     
 </body>
 </html>
