@@ -24,6 +24,7 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid slategrey;
 }
 
+
 .enter {
 	background-color: transparent;
 	font-family: 'Roboto';
@@ -120,9 +121,9 @@ body::-webkit-scrollbar-thumb {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	transition: opacity 1s ease-in-out;
-    -moz-transition: opacity 1s ease-in-out;
-    -webkit-transition: opacity 1s ease-in-out;
+	transition: opacity 1.5s ease-in-out;
+    -moz-transition: opacity 1.5s ease-in-out;
+    -webkit-transition: opacity 1.5s ease-in-out;
 	padding: 20px;
 	width: 480px;
 	margin: 20px;
@@ -209,6 +210,9 @@ body::-webkit-scrollbar-thumb {
 
 .service1:hover, .service2:hover{
 	opacity: 0;
+	transition: opacity .3s ease-in-out;
+    -moz-transition: opacity .3s ease-in-out;
+    -webkit-transition: opacity .3s ease-in-out;
 /*
     transition: opacity .35s ease-in-out;
     -moz-transition: opacity .35s ease-in-out;
@@ -253,80 +257,177 @@ body::-webkit-scrollbar-thumb {
 	position: absolute; /*TRY relative*/
 	width: 100%;
 	height: 550px;
-	margin-top: 25px;
 	overflow: hidden;
-	font-family: 'Roboto';
-	padding-left: 30px;
-	line-height: 20px;
+/*	padding-left: 30px;*/
+/*	line-height: 20px;*/
 }
 
 .twoD-text {
-	padding-left: 10px;
-	line-height: 45px;
-	font-family: monospace;
-	letter-spacing: 4px;
-	font-size: 15;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	text-align: center;
+	height: 165px;
+	width: 100%;
+	line-height: 160px;
+	letter-spacing: 3px;
+	font-size: 18px;
+	font-weight: lighter;
+/*	position: absolute;*/
+	background-color: black;
+	margin-top: 5px;
+/*	flex-wrap: wrap;*/
+	word-wrap: normal;
+	-webkit-transition: width 1s ease-in-out; /* For Safari 3.1 to 6.0 */
+    transition: width 1s ease-in-out;
 }
 
-.gif-gallery {
+.title-subtext2 {
+	font-family: 'Roboto';
+	color: white;
+	font-size: 15px;
+/*	font-weight: 100;*/
+	letter-spacing: 5px;
+}
+
+/*
+.twoD-text-animate {
+	-webkit-transition: letter-spacing 1s ease-in-out;  For Safari 3.1 to 6.0 
+    transition: letter-spacing 1s ease-in-out;
+}
+*/
+
+/*
+.twoD-text-animate:hover {
+	letter-spacing: 50px;
+}
+*/
+
+.gif-gallery, .twoD-text-wrapper {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
+	align-items: center;
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	
+}
+
+.twoD-text-wrapper {
+	z-index: 10;
+	width: 100%;
+}
+
+.twoD-text:hover{
+	width: 0;
+	border: none;
 }
 
 
 .gif1, .gif2, .gif3{
 	border: 1px solid white;
-	position: absolute;
-	margin-left: -30px;
-	margin-top: 20px;
+/*	position: absolute;*/
 	overflow: hidden;
+	height: 163px;
+	width: auto;
+	margin-top: 5px;
 }
 
-p {
+/*-------PAGE 2 - MODELING----------------*/
+#modeling {
+	position: absolute;
+	height: 550px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.model-content {
+	display: flex;
+	justify-content: space-between;
+	width: 800px;
+	height: 270px;
+/*	margin: 20px 0;*/
+}
+
+.model-text-wrap, .model-img-wrap {
+	height: 300px;
+/*	width: 40%;*/
+	overflow: hidden;
+	
+}
+
+.model-text-wrap {
+	margin-left: 10%;
+	margin-top: 25px;
+}
+
+.model-img-wrap {
+	margin-right: 7%;
+}
+
+.model-text {
 	font-family: 'Roboto';
+	letter-spacing: 3px;
+	line-height: 10px;
+	font-weight: lighter;
+	padding-top: 45px;
+	line-height: 25px;
 }
 
-/*
-.gif-z1 {
-	z-index: -10;
-}
-*/
-/*
-.gif-z2 {
-	z-index: 100;
-}
-.gif-z3 {
-	z-index: 1000;
-}
-*/
-.w3-black,.w3-hover-black:hover{color:hotpink;background-color:black}
-.w3-content{;max-width:980px;margin:auto}.w3-rest{overflow:hidden}
-
-.w3-button {
-	border-radius: 100%; 
-	font-size: 20px; 
-	margin-top: 240px; 
-	border:1px solid white;
-	padding:7px 16px;
-	vertical-align:middle;
-	overflow:hidden;
-	text-decoration:none;
-	color:inherit;
-	background-color:inherit;
-	text-align:center;
-	cursor:pointer;
-	white-space:nowrap
+.jux-wrapper {
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	margin-top: 40px;
 }
 
-.w3-display-container{position:absolute}
-.w3-display-right{position:absolute;top:50%;right:0%;transform:translate(0%,-50%);-ms-transform:translate(0%,-50%)}
-
-.w3-button:hover{
-	background-color: rgb(63,63,63);
-	border-radius: 100%;
-	font-size: 20px;
-	text-shadow: 
+.juxtapose {
+	width: 800px;
+	height: 209px;
 }
 
-/*-------PAGE 2 - 3D GRAPHICS----------------*/
+/*---------PAGE 3 - INFOGRAPHIC------------*/
+#infographics {
+	width: 100%;
+	height: 550px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+}
+
+.info-text {
+	margin-top: 25px;
+	font-family: 'Roboto';
+	letter-spacing: 3px;
+	font-weight: lighter;
+}
+
+.info-visual {
+	border-left: 3px solid white;
+	border-bottom: 3px solid white;
+	height: 350px;
+	width: 800px;
+	background-color: darkgrey;
+	opacity: .2;
+}
+
+.info-data {
+	border: 1px solid white;
+	padding: 24px 0;
+	width: 99.8%;
+	-webkit-transition: background-color 1.2s ease-in; /* For Safari 3.1 to 6.0 */
+    transition: background-color 1.2s ease-in;
+	
+}
+
+.info-data:hover {
+	background-color: yellow;
+	-webkit-transition: background-color .2s ease-in; /* For Safari 3.1 to 6.0 */
+    transition: background-color .2s ease-in;
+}
 

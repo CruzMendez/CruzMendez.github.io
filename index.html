@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT|Roboto:100,400" rel="stylesheet">
-<!--  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
 
 </head>
 <body>
@@ -43,47 +42,52 @@
 <!-----	PAGE 1  - ILLUSTRATIONS------->
 	<div id="illustrations" class="div-hide">
 		
-		<div class="twoD-text" >
-			<p class="twoD-text" ><span class="purple2">&bull;</span> Animation</p>
-			<p class="twoD-text"><span class="purple2">&bull;</span> Storyboarding</p>
-			<p class="twoD-text"><span class="purple2">&bull;</span> "Loading-state" Visuals</p>
-			<p class="twoD-text"><span class="purple2">&bull;</span> Scalable Vector Graphics [SVGs]</p>
-			<p class="twoD-text"><span class="purple2">&bull;</span> Logo Creation + Branding</p>
+		<div class="twoD-text-wrapper" >
+			<p class="twoD-text twoD-text-animate"><span style="visibility: hidden">-</span><span class="purple2">&bull;</span> Quick Storyboarding + Layouts</p>
+			<p class="twoD-text twoD-text-animate" ><span style="visibility: hidden">-</span><span class="purple2">&bull;</span> Animation + "Loading-state" Visuals</p>
+			<p class="twoD-text twoD-text-animate"><span style="visibility: hidden">-</span><span class="purple2">&bull;</span> Logo Creation + Scalable Vector Graphics [SVGs]</p>
 		</div>
-		<div class="gif-gallery  ">
-			<img class="gif1 myslides" src="./img/gif1.gif">
-			<img class="gif2 myslides" src="./img/gif2.gif">
-			<img class="gif3 myslides" src="./img/gif3.gif">
 		
-			<button class="w3-button" onclick="plusDivs(1)">&#10095;</button>
+		<div class="gif-gallery ">
+			<img class="gif1" src="./img/gif1.gif">
+			<img class="gif2" src="./img/gif2.gif">
+			<img class="gif3" src="./img/gif3.gif">
+		</div>
+		
+	</div>
+	
+	
+<!-----	PAGE 2  - MODELING ------->
+    <div id="modeling" class="div-hide">
+		<div class="model-content">
+			<div class="model-text-wrap">
+				<p class="model-text"><span class="purple2">&bull;</span> Rendering + Animation</p>
+				<p class="model-text"><span class="purple2">&bull;</span> Prototyping + 3D Printing</p>
+				<p class="model-text"><span class="purple2">&bull;</span> 3D WGL [Web Graphics Library]</p>
+			</div>
+			<div class="model-img-wrap">
+				<img src=./img/3dgif.gif>
+			</div>
+		</div>
+		
+		<div class="jux-wrapper">
+			<iframe frameborder="0" class="juxtapose"  src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=32cae44c-18c5-11e8-b263-0edaf8f81e27"></iframe>
 		</div>
 	</div>
 	
-	<script>
-		var slideIndex = 1;
-		showDivs(slideIndex);
-
-		function plusDivs(n) {
-			showDivs(slideIndex += n);
-		}
-
-		function showDivs(n) {
-		  var i;
-		  var x = document.getElementsByClassName("mySlides");
-		  if (n > x.length) {
-			  slideIndex = 1
-		  }    
-		  if (n < 1) {
-			  slideIndex = x.length
-		  }
-		  for (i = 0; i < x.length; i++) {
-			 x[i].style.display = "none";  
-		  }
-		  x[slideIndex-1].style.display = "block";  
-		}
-	</script>
+<!-------PAGE 3 - INFOGRAPHICS--------->
+	<div id="infographics" class="div-hide">
+		<div class="info-visual">
+			<p class="info-data"></p>
+			<p class="info-data"></p>
+			<p class="info-data"></p>
+			<p class="info-data"></p>
+			<p class="info-data"></p>
+			<p class="info-data"></p>
+			<p class="info-data"></p>
+		</div>
+		<p class="info-text">Parametric + manual data visualizations</p>
+	</div>
 	
-<!-----	PAGE 2  - MODELING ------->
-    
 </body>
 </html>

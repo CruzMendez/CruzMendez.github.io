@@ -7,6 +7,8 @@ var showLine;
 var divServ;
 var divServ2;
 var divIllust;
+var divMod;
+var divInfo
 var currentPage;
 
 var pageTitle = ["services", 
@@ -117,7 +119,15 @@ function addStyle() {
 //}
 
 	function page2() {
+		divMod = select('#modeling');
+		divMod.removeClass('div-hide');
+		addStyle();
+	}
 
+	function page3() {
+		divInfo = select('#infographics');
+		divInfo.removeClass('div-hide');
+		addStyle();
 	}
 
 function windowResized() {
@@ -233,7 +243,10 @@ function Seed() {
 			divServ2.addClass('div-hide');
 			divIllust = select('#illustrations');
 			divIllust.addClass('div-hide');
-			
+			divMod = select('#modeling');
+			divMod.addClass('div-hide');
+			divInfo = select('#infographics');
+			divInfo.addClass('div-hide');
 		
 			for (var i = 0; i < seeds.length; i++) {
 				this.seedStroke = 255;
@@ -249,6 +262,12 @@ function Seed() {
 				};
 				if (this.inDex == 1) {
 					page1();
+				};
+				if (this.inDex == 2) {
+					page2();
+				};
+				if (this.inDex == 3) {
+					page3();
 				};
 			};
 		};
