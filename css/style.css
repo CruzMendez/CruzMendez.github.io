@@ -1,5 +1,5 @@
 body{
-  background-color: black;
+  background-color: #000416;
   font-family: 'Roboto', Helvetica;
   margin: 0 auto;
   color:white;
@@ -7,6 +7,7 @@ body{
 
 canvas {
 	z-index: -10;
+/*	background-color: #00041c;*/
 }
 
 /*	SCROLL BAR STYLE:*/
@@ -28,7 +29,7 @@ body::-webkit-scrollbar-thumb {
 .enter {
 	background-color: transparent;
 	font-family: 'Roboto';
-	color: #a36ab7;
+	color: rgb(10,129,147);
 	font-size: 30px;
 	border: none;
 }
@@ -53,7 +54,8 @@ body::-webkit-scrollbar-thumb {
 
 .title-text {
 	font-family: 'Roboto';
-	color: #a36ab7;
+/*	color: #a36ab7;*/
+	color: #177f84;
 	font-size: 30px;
 	font-weight: 100;
 	letter-spacing: 12px;
@@ -101,7 +103,7 @@ body::-webkit-scrollbar-thumb {
 	margin: 20px;
 	width: 200px;
 /*	background-color: #303030;*/
-	background-color: black;
+	background-color: #000416;
 	font-family: 'Roboto';
 	font-weight: 100;
 	font-size: 50px;
@@ -128,7 +130,7 @@ body::-webkit-scrollbar-thumb {
 	width: 480px;
 	margin: 20px;
 /*	background-color: #303030;*/
-	background-color: black;
+	background-color: #000416;
 	font-family: 'Roboto';
 	font-weight: 100;
 	font-size: 45px;
@@ -199,13 +201,16 @@ body::-webkit-scrollbar-thumb {
 }
 
 .purple{
-	color: #a36ab7;
+/*	color: #a36ab7; original theme purple*/
+	color: #177f84;
 	font-size: 60px;
+	font-weight: normal;
 }
 
 .purple2{
-	color: #a36ab7;
+	color: #177f84;
 	font-size: 20px;
+/*	font-weight: bold;*/
 }
 
 .service1:hover, .service2:hover{
@@ -263,8 +268,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .twoD-text {
-	border-left: 1px solid white;
-	border-right: 1px solid white;
+	border-left: 5px solid #177f84;
+	border-right: 5px solid #177f84;
 	text-align: center;
 	height: 165px;
 	width: 100%;
@@ -273,7 +278,7 @@ body::-webkit-scrollbar-thumb {
 	font-size: 18px;
 	font-weight: lighter;
 /*	position: absolute;*/
-	background-color: black;
+	background-color: #000416;
 	margin-top: 5px;
 /*	flex-wrap: wrap;*/
 	word-wrap: normal;
@@ -325,7 +330,7 @@ body::-webkit-scrollbar-thumb {
 
 
 .gif1, .gif2, .gif3{
-	border: 1px solid white;
+	border: 1px solid #00041c;
 /*	position: absolute;*/
 	overflow: hidden;
 	height: 163px;
@@ -429,5 +434,80 @@ body::-webkit-scrollbar-thumb {
 	background-color: yellow;
 	-webkit-transition: background-color .2s ease-in; /* For Safari 3.1 to 6.0 */
     transition: background-color .2s ease-in;
+}
+
+/*---------PAGE 4 - WORK------------*/
+#portfolio {
+	overflow: scroll;
+	width: 80%;
+	height: 600px;
+	display: flex;
+	justify-content: space-between;
+	position: absolute;
+	margin: auto 10%;
+	align-self: center;
+	flex-wrap: wrap;
+}
+
+.work-slide {
+	width: 200px;
+	height: 200px;
+	text-align: center;
+	opacity: .6;
+	-webkit-transition: opacity 1.2s ease-in; /* For Safari 3.1 to 6.0 */
+    transition: opacity 1.2s ease-in;
+	position: relative;
+}
+
+.work-anch {
+	
+}
+
+.work-img{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.work-desc {
+	position: absolute;
+	font-weight: lighter;
+	letter-spacing: 3px;
+	border-bottom: 1px solid white;
+	bottom: 20px;
+    left: 50%;
+	transform: translate(-50%, -50%);
+	padding-bottom: ;
+}
+
+.work-sub-desc {
+	font-family: 'Roboto';
+	color: gray;
+	letter-spacing: 2px;
+	position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.work-slide:hover {
+	opacity: 1;
+	-webkit-transition: opacity .2s ease-in; /* For Safari 3.1 to 6.0 */
+    transition: opacity .2s ease-in;
+}
+
+#portfolio::-webkit-scrollbar {
+    width: 3px;
+}
+ 
+#portfolio::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(63,0.9);
+}
+ 
+#portfolio::-webkit-scrollbar-thumb {
+  background-color: white;
+  outline: 1px solid slategrey;
 }
 
