@@ -4,19 +4,23 @@ var seedOrigin = 0;
 var seedPosition = 0;
 var seeds = [];
 var showLine;
+var strokeVis = 0;
 var divServ;
 var divServ2;
 var divIllust;
 var divMod;
-var divInfo
+var divInfo;
+var divPhoto;
+var divWork;
 var currentPage;
+var numGen;
 
 var pageTitle = ["services", 
 				 "illustrations", 
 				 "modeling", 
-				 "interactive", 
-				 "photography", 
+				 "interactive",  
 				 "projects", 
+				 "photography",
 				 "resources",
 				 "about"];
 
@@ -24,8 +28,8 @@ var pageSubTitle = ["WHAT I CAN DO",
 					"2D GRAPHICS", 
 					"3D GRAPHICS", 
 					"INFO GRAPHICS", 
+					"WORK SAMPLES", 
 					"PHOTO GRAPHICS", 
-					"PAST PROJECTS", 
 					"LIBRARY",
 					"ME"];
 var pageNumber = 0;
@@ -41,7 +45,7 @@ var rectFill = 40;
 var homeRect;
 var cord2;
 var zIndex = 100;
-//var gif1;
+
 
 
 
@@ -65,11 +69,7 @@ function setup() {
 	enter.position(12,innerHeight/2);
 	enter.addClass('enter');
 	enter.addClass('font-grow-fast');
-	enter.mousePressed(page0);
-//	titleText = createP(pageTitle[pageNumber]);
-//	titleText.position(30,innerHeight-170);
-//	titleText.addClass('title-text');
-	
+	enter.mousePressed(page0);	
 };
 
 function addStyle() {
@@ -91,6 +91,7 @@ function addStyle() {
 		divServ2.removeClass('div-hide');
 		showLine = innerHeight-130;
 		underline = 255;
+		strokeVis = 40;
 		h1.remove();
 		h3.remove();
 		enter.remove();
@@ -102,21 +103,9 @@ function addStyle() {
 		divIllust = select('#illustrations');
 		divIllust.removeClass('div-hide');
 		addStyle();
-//		var fixFont = select('twoD-text');
-//		fixFont.addClass('title-text')
-//		var nextButton = createButton('&#10095;');
-//		nextButton.position(innerWidth/2,500);
-//		nextButton.mousePressed(zIndexUp);
-//		var gif1 = select('gif3');
-//		gif1.addClass('gif-z1');
 	};
 
-//function zIndexUp() {
-////	zIndex = zIndex + 10;
-//	var gif1 = select('gif3');
-////	gif1.style('z-index', 'zIndex');
-//	gif1.addClass('gif-z1');
-//}
+
 
 	function page2() {
 		divMod = select('#modeling');
@@ -127,6 +116,12 @@ function addStyle() {
 	function page3() {
 		divInfo = select('#infographics');
 		divInfo.removeClass('div-hide');
+		addStyle();
+	}
+
+	function page4() {
+		divWork = select('#portfolio');
+		divWork.removeClass('div-hide');
 		addStyle();
 	}
 
@@ -141,23 +136,13 @@ function mousePressed() {
 };
 
 
-//function visSet() {
-//	var skillDiv = select('#skills');
-//	var divServ = select('#services');
-//	divServ.addClass('div-hide');
-//	skillDiv.removeClass('div-hide');
-//	skillDiv.addClass('div-vis');
-//};
-
-
 function draw() {
-	background(0);
+	background(0,4,22);
 //	clear();
 	noStroke();
-	fill(rectFill);
+//	fill(rectFill);
 	rect(0,0,innerWidth,innerHeight);
 	textSize(35);
-//	textFont('Calibri');
 	fill(179,114,201,195);
 	noStroke();
 //	translate(30,260);
@@ -172,6 +157,13 @@ function draw() {
 	//		seeds[i].changeTitle();
 		};
 	}; 
+	
+//	for (var j=0; j<10; j++) {
+//		numGen = floor(random(100000,900000));
+//		return numGen;
+//	}
+//	pageTitle[0] = seeds[0].x * seeds[0].y;
+	
 
 //	stroke(underline);
 //	line(20,innerHeight-90,((innerWidth/2)-160),innerHeight-90)
@@ -218,7 +210,7 @@ function Seed() {
 		line(seeds[0].x, seeds[0].y, seeds[0].x, showLine);
 		line(20, innerHeight-130, this.cord3, innerHeight-130);
 		fill(0,0);
-		stroke(underline,40)
+		stroke(underline, strokeVis)
 		ellipse(seeds[0].x,seeds[0].y,20,20);
 		this.cord1 = line(20, innerHeight-130, seeds[0].x, innerHeight-130);
 	};
@@ -229,7 +221,7 @@ function Seed() {
 		var d = dist(mouseX,mouseY, this.x, this.y);
 		if (d < 14) {
 			noStroke();
-			fill(150,250);
+			fill(158,118,201,100);
 			ellipse(this.x, this.y, 20, 20);
 		};
 	};
@@ -247,6 +239,8 @@ function Seed() {
 			divMod.addClass('div-hide');
 			divInfo = select('#infographics');
 			divInfo.addClass('div-hide');
+			divWork = select('#portfolio');
+			divWork.addClass('div-hide');
 		
 			for (var i = 0; i < seeds.length; i++) {
 				this.seedStroke = 255;
@@ -269,16 +263,11 @@ function Seed() {
 				if (this.inDex == 3) {
 					page3();
 				};
+				if (this.inDex == 4) {
+					page4();
+				};
 			};
 		};
 	};
-//	this.changeTitle = function() {
-//		var d = dist(mouseX,mouseY, this.x, this.y);
-//		if (d < 14) {
-//			for(var i = 0; i < seeds.length; i++) {
-//			pageNumber = 1;				
-//			};
-//		};
-//	};
 };
 
