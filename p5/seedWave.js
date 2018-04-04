@@ -210,7 +210,7 @@ function Seed() {
 		line(seeds[0].x, seeds[0].y, seeds[0].x, showLine);
 		line(20, innerHeight-130, this.cord3, innerHeight-130);
 		fill(0,0);
-		stroke(underline, strokeVis)
+		stroke(underline, 40)
 		ellipse(seeds[0].x,seeds[0].y,20,20);
 		this.cord1 = line(20, innerHeight-130, seeds[0].x, innerHeight-130);
 	};
@@ -221,7 +221,7 @@ function Seed() {
 		var d = dist(mouseX,mouseY, this.x, this.y);
 		if (d < 14) {
 			noStroke();
-			fill(158,118,201,100);
+			fill(150,250);
 			ellipse(this.x, this.y, 20, 20);
 		};
 	};
