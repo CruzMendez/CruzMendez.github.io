@@ -137,8 +137,8 @@ function mousePressed() {
 
 
 function draw() {
-	background(0,4,22);
-//	clear();
+//	background(0,4,22);
+	clear();
 	noStroke();
 //	fill(rectFill);
 	rect(0,0,innerWidth,innerHeight);
@@ -153,7 +153,7 @@ function draw() {
 		seeds[i].display();
 		if (underline === 255) {
 			seeds[i].wave();
-			seeds[i].highlight();
+//			seeds[i].highlight();
 	//		seeds[i].changeTitle();
 		};
 	}; 
