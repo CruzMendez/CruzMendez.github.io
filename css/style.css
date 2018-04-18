@@ -447,19 +447,19 @@ body::-webkit-scrollbar-thumb {
 /*---------PAGE 4 - WORK------------*/
 #portfolio {
 	overflow: scroll;
-	width: 80%;
-	height: 600px;
+	width: 760px;
+	height: 550px;
 	display: flex;
-	justify-content: space-between;
-	position: absolute;
-	margin: auto 10%;
-	align-self: center;
+	justify-content: center;
+/*	position: absolute;*/
+	margin: 0 auto;
+/*	align-self: center;*/
 	flex-wrap: wrap;
 }
 
 .work-slide {
-	width: 200px;
-	height: 200px;
+	width: 250px;
+	height: 250px;
 	text-align: center;
 	opacity: .6;
 	-webkit-transition: opacity 1.2s ease-in; /* For Safari 3.1 to 6.0 */
@@ -504,6 +504,13 @@ body::-webkit-scrollbar-thumb {
 	opacity: 1;
 	-webkit-transition: opacity .2s ease-in; /* For Safari 3.1 to 6.0 */
     transition: opacity .2s ease-in;
+    box-shadow: 10px 10px 30px;
+    transition:  box-shadow .5s ease-in-out;
+    -moz-transition:  box-shadow .5s ease-in-out;
+    -webkit-transition:  box-shadow .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -webkit-transition: opacity .5s ease-in-out;
 }
 
 #portfolio::-webkit-scrollbar {

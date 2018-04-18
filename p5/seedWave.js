@@ -50,7 +50,7 @@ var zIndex = 100;
 
 
 function setup() {
-    canvas = createCanvas(innerWidth,innerHeight-450); 
+    canvas = createCanvas(innerWidth,innerHeight-500); 
     canvas.position(0,500);
 	frameRate(20);
 	for (var i=0; i<seedCount; i++) {
@@ -105,28 +105,26 @@ function addStyle() {
 		addStyle();
 	};
 
-
-
 	function page2() {
 		divMod = select('#modeling');
 		divMod.removeClass('div-hide');
 		addStyle();
 	}
-//
-//	function page3() {
-//		divInfo = select('#infographics');
-//		divInfo.removeClass('div-hide');
-//		addStyle();
-//	}
-//
-//	function page4() {
-//		divWork = select('#portfolio');
-//		divWork.removeClass('div-hide');
-//		addStyle();
-//	}
+
+	function page3() {
+		divInfo = select('#infographics');
+		divInfo.removeClass('div-hide');
+		addStyle();
+	}
+
+	function page4() {
+		divWork = select('#portfolio');
+		divWork.removeClass('div-hide');
+		addStyle();
+	}
 
 function windowResized() {
-	resizeCanvas(innerWidth, innerHeight-450);
+	resizeCanvas(innerWidth, innerHeight);
 };
 
 function mousePressed() {
@@ -237,10 +235,10 @@ function Seed() {
 			divIllust.addClass('div-hide');
 			divMod = select('#modeling');
 			divMod.addClass('div-hide');
-//			divInfo = select('#infographics');
-//			divInfo.addClass('div-hide');
-//			divWork = select('#portfolio');
-//			divWork.addClass('div-hide');
+			divInfo = select('#infographics');
+			divInfo.addClass('div-hide');
+			divWork = select('#portfolio');
+			divWork.addClass('div-hide');
 		
 			for (var i = 0; i < seeds.length; i++) {
 				this.seedStroke = 255;
@@ -260,12 +258,12 @@ function Seed() {
 				if (this.inDex == 2) {
 					page2();
 				};
-//				if (this.inDex == 3) {
-//					page3();
-//				};
-//				if (this.inDex == 4) {
-//					page4();
-//				};
+				if (this.inDex == 3) {
+					page3();
+				};
+				if (this.inDex == 4) {
+					page4();
+				};
 			};
 		};
 	};
