@@ -435,6 +435,24 @@ body::-webkit-scrollbar-thumb {
 	width: 99.8%;
 	-webkit-transition: background-color 1.2s ease-in; /* For Safari 3.1 to 6.0 */
     transition: background-color 1.2s ease-in;
+}
+
+/*
+.vertical-div{
+	margin-top: 180px;
+	margin-left: 15px;
+	position: absolute;
+	width: 20px;
+	height: 170px;
+	background-color: navy;
+	opacity: .7;
+}
+*/
+
+.vertical-div:hover {
+	background-color: deeppink;
+	-webkit-transition: background-color .2s ease-in; /* For Safari 3.1 to 6.0 */
+    transition: background-color .2s ease-in;
 	
 }
 
@@ -467,9 +485,6 @@ body::-webkit-scrollbar-thumb {
 	position: relative;
 }
 
-.work-anch {
-	
-}
 
 .work-img{
 	width: 100%;
@@ -504,7 +519,7 @@ body::-webkit-scrollbar-thumb {
 	opacity: 1;
 	-webkit-transition: opacity .2s ease-in; /* For Safari 3.1 to 6.0 */
     transition: opacity .2s ease-in;
-    box-shadow: 10px 10px 30px;
+    box-shadow: 10px 10px 30px #565656;
     transition:  box-shadow .5s ease-in-out;
     -moz-transition:  box-shadow .5s ease-in-out;
     -webkit-transition:  box-shadow .5s ease-in-out;
