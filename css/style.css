@@ -1,5 +1,5 @@
 body{
-  background-color: #000416;
+  background-color: #010723;
   font-family: 'Roboto', Helvetica;
   margin: 0 auto;
   color:white;
@@ -103,7 +103,7 @@ body::-webkit-scrollbar-thumb {
 	margin: 20px;
 	width: 200px;
 /*	background-color: #303030;*/
-	background-color: #000416;
+	background-color: #010723;
 	font-family: 'Roboto';
 	font-weight: 100;
 	font-size: 50px;
@@ -130,7 +130,7 @@ body::-webkit-scrollbar-thumb {
 	width: 480px;
 	margin: 20px;
 /*	background-color: #303030;*/
-	background-color: #000416;
+	background-color: #010723;
 	font-family: 'Roboto';
 	font-weight: 100;
 	font-size: 45px;
@@ -278,7 +278,7 @@ body::-webkit-scrollbar-thumb {
 	font-size: 18px;
 	font-weight: lighter;
 /*	position: absolute;*/
-	background-color: #000416;
+	background-color: #010723;
 	margin-top: 5px;
 /*	flex-wrap: wrap;*/
 	word-wrap: normal;
@@ -392,6 +392,14 @@ body::-webkit-scrollbar-thumb {
 .juxtapose {
 	width: 800px;
 	height: 209px;
+}
+
+#jux-cover{
+	background-color: #010723;
+	position: absolute;
+	height: 20px;
+	width: 801px;
+	margin-top: 185px;
 }
 
 /*---------PAGE 3 - INFOGRAPHIC------------*/

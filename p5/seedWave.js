@@ -40,7 +40,7 @@ var enter;
 var bground;
 var h3;
 var h1;
-var underline = 40;
+var underline = 255;
 var rectFill = 40;
 var homeRect;
 var cord2;
@@ -50,8 +50,8 @@ var zIndex = 100;
 
 
 function setup() {
-    canvas = createCanvas(innerWidth,innerHeight); 
-//    canvas.position(0,innerHeight-200);
+    canvas = createCanvas(innerWidth,innerHeight-450); 
+    canvas.position(0,500);
 	frameRate(20);
 	for (var i=0; i<seedCount; i++) {
 		seedOrigin = seedOrigin + 35;
@@ -89,13 +89,13 @@ function addStyle() {
 		divServ.removeClass('div-hide');
 	//	divServ.addClass('div-vis');
 		divServ2.removeClass('div-hide');
-		showLine = innerHeight-130;
-		underline = 255;
-		strokeVis = 40;
+//		showLine = innerHeight-130;
+//		underline = 255;
+//		strokeVis = 40;
 		h1.remove();
 		h3.remove();
 		enter.remove();
-		rectFill = 0;
+//		rectFill = 0;
 		addStyle();
 	};
 
@@ -112,21 +112,21 @@ function addStyle() {
 		divMod.removeClass('div-hide');
 		addStyle();
 	}
-
-	function page3() {
-		divInfo = select('#infographics');
-		divInfo.removeClass('div-hide');
-		addStyle();
-	}
-
-	function page4() {
-		divWork = select('#portfolio');
-		divWork.removeClass('div-hide');
-		addStyle();
-	}
+//
+//	function page3() {
+//		divInfo = select('#infographics');
+//		divInfo.removeClass('div-hide');
+//		addStyle();
+//	}
+//
+//	function page4() {
+//		divWork = select('#portfolio');
+//		divWork.removeClass('div-hide');
+//		addStyle();
+//	}
 
 function windowResized() {
-	resizeCanvas(innerWidth, innerHeight);
+	resizeCanvas(innerWidth, innerHeight-450);
 };
 
 function mousePressed() {
@@ -137,11 +137,11 @@ function mousePressed() {
 
 
 function draw() {
-//	background(0,4,22);
-	clear();
+	background(1,7,35);
+//	clear();
 	noStroke();
 //	fill(rectFill);
-	rect(0,0,innerWidth,innerHeight);
+//	rect(0,0,innerWidth,innerHeight);
 	textSize(35);
 	fill(179,114,201,195);
 	noStroke();
@@ -153,7 +153,7 @@ function draw() {
 		seeds[i].display();
 		if (underline === 255) {
 			seeds[i].wave();
-//			seeds[i].highlight();
+			seeds[i].highlight();
 	//		seeds[i].changeTitle();
 		};
 	}; 
@@ -196,23 +196,23 @@ function Seed() {
 	this.amplitude = .6;
 	this.period = random(150,155);
     this.x = (innerWidth/2-(160))+seedOrigin;
-    this.y = innerHeight-65;
+    this.y = 150;
 	this.diam = 20;
 	this.seedStroke = 63;
-	this.cord1 = undefined;
-	this.cord3 = undefined;
+//	this.cord1 = undefined;
+//	this.cord3 = undefined;
     this.display = function() {		
         stroke(this.seedStroke);
         fill(150,95);
         ellipse(this.x, this.y, this.diam, this.diam);
 		stroke(255);
-		line(this.x, innerHeight-130, this.cord3, this.y);
-		line(seeds[0].x, seeds[0].y, seeds[0].x, showLine);
-		line(20, innerHeight-130, this.cord3, innerHeight-130);
+//		line(this.x, innerHeight-130, this.cord3, this.y);
+//		line(seeds[0].x, seeds[0].y, seeds[0].x, showLine);
+//		line(20, innerHeight-130, this.cord3, innerHeight-130);
 		fill(0,0);
 		stroke(underline, 40)
 		ellipse(seeds[0].x,seeds[0].y,20,20);
-		this.cord1 = line(20, innerHeight-130, seeds[0].x, innerHeight-130);
+//		this.cord1 = line(20, innerHeight-130, seeds[0].x, innerHeight-130);
 	};
 	this.wave = function () {
 		this.y = this.y + this.amplitude * sin((frameCount/this.period)*TWO_PI);
@@ -237,10 +237,10 @@ function Seed() {
 			divIllust.addClass('div-hide');
 			divMod = select('#modeling');
 			divMod.addClass('div-hide');
-			divInfo = select('#infographics');
-			divInfo.addClass('div-hide');
-			divWork = select('#portfolio');
-			divWork.addClass('div-hide');
+//			divInfo = select('#infographics');
+//			divInfo.addClass('div-hide');
+//			divWork = select('#portfolio');
+//			divWork.addClass('div-hide');
 		
 			for (var i = 0; i < seeds.length; i++) {
 				this.seedStroke = 255;
@@ -260,12 +260,12 @@ function Seed() {
 				if (this.inDex == 2) {
 					page2();
 				};
-				if (this.inDex == 3) {
-					page3();
-				};
-				if (this.inDex == 4) {
-					page4();
-				};
+//				if (this.inDex == 3) {
+//					page3();
+//				};
+//				if (this.inDex == 4) {
+//					page4();
+//				};
 			};
 		};
 	};
