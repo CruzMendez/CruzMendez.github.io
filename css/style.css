@@ -21,37 +21,38 @@ body{
 	box-shadow: 15px 15px 40px darkblue;
 }
 
-.modal2{
-	margin-top: 12%;
+.modal1, .modal2{
+	margin-top: 40%;
 }
 
 .modal3{
-	margin-top: 24%;
+	margin-top: 40%;
 }
 
 .modal4{
-	margin-top: 36%;
+	margin-top: 40%;
 }
 
 .modal5{
-	margin-top: 48%;
+	margin-top: 40%;
 	color: yellow;
 	border: 2px dashed yellow;
+	letter-spacing: 10px;
 }
 
 .modal6{
-	margin-top: 60%;
+	margin-top: 40%;
 }
 
 .modal7{
-	margin-top: 72%;
+	margin-top: 40%;
 }
 
 .modal8{
-	margin-top: 84%;
+	margin-top: 40%;
 }
 .modal9{
-	margin-top: 96%;
+	margin-top: 40%;
 }
 
 canvas {
