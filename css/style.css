@@ -5,6 +5,55 @@ body{
   color:white;
 }
 
+.modal1, .modal2, .modal3, .modal4,
+.modal5, .modal6, .modal7, .modal8, .modal9{
+	height: 10%;
+	width: 75%;
+	position: absolute;
+	background-color: darkcyan;
+	border-radius: 20px;
+	text-align: center;
+	margin-left: 12.5%;
+	font-family: 'Roboto';
+	align-self: center;
+	font-size: 25px;
+	letter-spacing: 15px;
+	box-shadow: 15px 15px 40px darkblue;
+}
+
+.modal2{
+	margin-top: 12%;
+}
+
+.modal3{
+	margin-top: 24%;
+}
+
+.modal4{
+	margin-top: 36%;
+}
+
+.modal5{
+	margin-top: 48%;
+	color: yellow;
+	border: 2px dashed yellow;
+}
+
+.modal6{
+	margin-top: 60%;
+}
+
+.modal7{
+	margin-top: 72%;
+}
+
+.modal8{
+	margin-top: 84%;
+}
+.modal9{
+	margin-top: 96%;
+}
+
 canvas {
 	z-index: -10;
 /*	background-color: #00041c;*/

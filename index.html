@@ -6,12 +6,42 @@
   <script language="javascript" src="./p5/libraries/p5.dom.js"></script>
 <!--  <script language="javascript" src="./p5/libraries/p5.sound.js"></script>-->
   <script language="javascript" type="text/javascript" src="./p5/seedWave.js"></script>
+	<link rel="stylesheet" href="./css/animate.css">
+	
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT|Roboto:100,400" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/demo1.css" />
 </head>
 <body>
+	
+	<div class="modal1 animated slideInUp"><br />
+		Under
+	</div>
+	<div class="modal2 animated FadeInRight"><br />
+		Construction
+	</div>
+	<div class="modal3 animated bounceIn"><br />
+		Under
+	</div>
+	<div class="modal4 animated jello"><br />
+		Construction
+	</div>
+	<div class="modal5 animated lightSpeedIn"><br />
+		Under Construction
+	</div>
+	<div class="modal6 animated flipInX"><br />
+		Construction
+	</div>
+	<div class="modal7 animated slideInDown"><br />
+		Under
+	</div>
+	<div class="modal8 animated rollIn"><br />
+		Construction
+	</div>
+	<div class="modal9 animated FadeInLeft"><br />
+		Under
+	</div>
 	
 <!-----	PAGE 0 - SERVICES------>
 	<div id="services" class="div-hide">
@@ -142,5 +172,19 @@
 	</div>
 	<script src="js/imagesloaded.pkgd.min.js"></script>
 	<script src="js/demo.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".modal1").fadeOut(3000);
+			$(".modal2").fadeOut(1400);
+			$(".modal3").fadeOut(1600);
+			$(".modal4").fadeOut(1800);
+			$(".modal5").fadeOut(2500);
+			$(".modal6").fadeOut(1800);
+			$(".modal7").fadeOut(1600);
+			$(".modal8").fadeOut(1400);
+			$(".modal9").fadeOut(1200);
+  		});
+	</script>
 </body>
 </html>
