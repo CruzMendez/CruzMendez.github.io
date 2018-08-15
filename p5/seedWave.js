@@ -1,7 +1,7 @@
 var canvas;
-var seedCount = 8;
+var seedCount = 15;
 var seedOrigin = 0;
-var seedPosition = 0;
+var seedID = 0;
 var seeds = [];
 var showLine;
 var strokeVis = 0;
@@ -14,6 +14,9 @@ var divPhoto;
 var divWork;
 var currentPage;
 var numGen;
+var fRate = 10;
+amp = 1.6
+
 
 var pageTitle = ["services", 
 				 "illustrations", 
@@ -36,9 +39,10 @@ var pageNumber = 0;
 var titleText;
 var titleSubText;
 var subTitle;
-var enter;
+var rateBtn;
+var ampBtn
 var bground;
-var h3;
+var title;
 var h1;
 var underline = 255;
 var rectFill = 40;
@@ -50,78 +54,41 @@ var zIndex = 100;
 
 
 function setup() {
-    canvas = createCanvas(innerWidth,innerHeight-500); 
-    canvas.position(0,500);
-	frameRate(20);
+    canvas = createCanvas(innerWidth,innerHeight); 
+    canvas.position(0,0);
+	frameRate(fRate);
 	for (var i=0; i<seedCount; i++) {
-		seedOrigin = seedOrigin + 35;
+		seedOrigin = seedOrigin + 25;
 		seeds[i] = new Seed();
-		seedPosition++;
-    };
+		seedID++;
+	};
+
 	
-	h3 = createElement('h3','cruz mendez');
-	h3.addClass('enter-name');
-	h3.position(20,(innerHeight/2)-60);
-	h1 = createElement('h1','portfolio');
-	h1.addClass('enter-port');
-	h1.position(20,(innerHeight/2)-24);
-	enter = createButton("ENTER");
-	enter.position(12,innerHeight/2);
-	enter.addClass('enter');
-	enter.addClass('font-grow-fast');
-	enter.mousePressed(page0);	
+	title = createElement('h1','P5.js Canvas');
+	title.addClass('enter-name');
+	title.position(35,innerHeight-100);
+	
+	rateBtn = createButton("Increase Speed");
+	rateBtn.position(20,(innerHeight/2)-60);
+	rateBtn.addClass('rate-btn');
+	rateBtn.mousePressed(rateUp);
+	
+	ampBtn = createButton("Increase Amplitude");
+	ampBtn.position(20,(innerHeight/2)-90);
+	ampBtn.addClass('amp-btn');
+	ampBtn.mousePressed(ampUp);
 };
 
-function addStyle() {
-	titleText = createP(pageTitle[pageNumber]);
-	titleSubText = createP(pageSubTitle[pageNumber]);
-	titleText.position(20,innerHeight-165);
-	titleText.addClass('title-text');
-	titleText.addClass('font-grow-slow');
-	titleSubText.addClass('title-subtext');
-	titleSubText.position(20,innerHeight-120);
+function rateUp() {
+	fRate = fRate * 2;
 };
 
-
-	function page0() {
-		divServ = select('#services');
-		divServ2 = select('#services-behind');
-		divServ.removeClass('div-hide');
-	//	divServ.addClass('div-vis');
-		divServ2.removeClass('div-hide');
-//		showLine = innerHeight-130;
-//		underline = 255;
-//		strokeVis = 40;
-		h1.remove();
-		h3.remove();
-		enter.remove();
-//		rectFill = 0;
-		addStyle();
+function ampUp() {
+	amp = amp * 1.5;
+	for (var i=0; i < seeds.length; i++) {
+		seeds[i].amplitude = amp;
 	};
-
-	function page1() {
-		divIllust = select('#illustrations');
-		divIllust.removeClass('div-hide');
-		addStyle();
-	};
-
-	function page2() {
-		divMod = select('#modeling');
-		divMod.removeClass('div-hide');
-		addStyle();
-	}
-
-	function page3() {
-		divInfo = select('#infographics');
-		divInfo.removeClass('div-hide');
-		addStyle();
-	}
-
-	function page4() {
-		divWork = select('#portfolio');
-		divWork.removeClass('div-hide');
-		addStyle();
-	}
+};
 
 function windowResized() {
 	resizeCanvas(innerWidth, innerHeight);
@@ -138,63 +105,27 @@ function draw() {
 	background(1,7,35);
 //	clear();
 	noStroke();
-//	fill(rectFill);
-//	rect(0,0,innerWidth,innerHeight);
 	textSize(35);
 	fill(179,114,201,195);
 	noStroke();
-//	translate(30,260);
-//	titleText = createP(pageTitle[0]);
-//	titleText.position(30,530);
-//	titleText.addClass('title-text');
+	frameRate(fRate);
+
 	for (var i=0; i<seeds.length; i++) {
 		seeds[i].display();
-		if (underline === 255) {
-			seeds[i].wave();
-			seeds[i].highlight();
-	//		seeds[i].changeTitle();
-		};
-	}; 
-	
-//	for (var j=0; j<10; j++) {
-//		numGen = floor(random(100000,900000));
-//		return numGen;
-//	}
-//	pageTitle[0] = seeds[0].x * seeds[0].y;
-	
-
-//	stroke(underline);
-//	line(20,innerHeight-90,((innerWidth/2)-160),innerHeight-90)
-//	line(seeds[9].x,seeds[9].y,250,260);
-//	cord2 = line(seeds[0].x, innerHeight-130, seeds[0].x, seeds[0].y);
-//	noStroke();
-//	fill(179,114,201,80);
-//	ellipse(seeds[0].x,seeds[0].y,40,40);
-//	ellipse(seeds[4].x,seeds[4].y,40,40);
-//	ellipse(seeds[9].x,seeds[9].y,40,40);
-//	ellipse(seeds[seeds.length-1].x,seeds[seeds.length-1].y,40,40);
-	
-//	for (var v = 0; v < seeds.length; v++) {
-//		var spot = 260;
-//		noStroke();
-//		fill(0,innerHeight-seeds[v].y-500);
-//		ellipse(seeds[v].x,innerHeight-26,20,8);
-//	};
-	
-//	stroke(underline, 200);
-//	ellipse(seeds[0].x,seeds[0].y,20,20)
-	
+		seeds[i].wave();
+		seeds[i].highlight();
+	}; 	
 };
 
 
 //--------------SEED CONTRUCTOR-------------//
 
 function Seed() {
-	this.inDex = 0 + seedPosition;
-	this.amplitude = .6;
+	this.inDex = 0 + seedID;
+	this.amplitude = amp;
 	this.period = random(150,155);
     this.x = (innerWidth/2-(160))+seedOrigin;
-    this.y = 150;
+    this.y = (innerHeight/2) - (50);
 	this.diam = 20;
 	this.seedStroke = 63;
 //	this.cord1 = undefined;
@@ -209,7 +140,7 @@ function Seed() {
 //		line(20, innerHeight-130, this.cord3, innerHeight-130);
 		fill(0,0);
 		stroke(underline, 40)
-		ellipse(seeds[0].x,seeds[0].y,20,20);
+		// ellipse(seeds[0].x,seeds[0].y,20,20);
 //		this.cord1 = line(20, innerHeight-130, seeds[0].x, innerHeight-130);
 	};
 	this.wave = function () {
@@ -231,14 +162,7 @@ function Seed() {
 			divServ2 = select('#services-behind');
 			divServ.addClass('div-hide');
 			divServ2.addClass('div-hide');
-			divIllust = select('#illustrations');
-			divIllust.addClass('div-hide');
-			divMod = select('#modeling');
-			divMod.addClass('div-hide');
-			divInfo = select('#infographics');
-			divInfo.addClass('div-hide');
-			divWork = select('#portfolio');
-			divWork.addClass('div-hide');
+	
 		
 			for (var i = 0; i < seeds.length; i++) {
 				this.seedStroke = 255;

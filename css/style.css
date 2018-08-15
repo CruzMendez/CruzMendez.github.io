@@ -76,11 +76,19 @@ body::-webkit-scrollbar-thumb {
 }
 
 
-.enter {
+.rate-btn {
 	background-color: transparent;
 	font-family: 'Roboto';
 	color: rgb(10,129,147);
-	font-size: 30px;
+	font-size: 20px;
+	border: none;
+}
+
+.amp-btn {
+	background-color: transparent;
+	font-family: 'Roboto';
+	color: rgb(146, 72, 153);
+	font-size: 20px;
 	border: none;
 }
 
