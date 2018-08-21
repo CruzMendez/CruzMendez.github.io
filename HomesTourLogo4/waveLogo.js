@@ -8,7 +8,7 @@ var showLine;
 var strokeVis = 0;
 // var angle = mouseY -200;
 
-var fRate = 50;
+var fRate = 40;
 
 var bground;
 var title;
@@ -60,7 +60,7 @@ function setup() {
 	for (var i=0; i<1; i++) {
 		node[i] = new OuterNodes();
 	}
-	title = createElement('h1','2018 AIA Austin Homes Tour <br /> [Demo - v3]');
+	title = createElement('h1','2018 AIA Austin Homes Tour <br /> [Demo - v4]');
 	title.addClass('enter-name');
 	title.position(35,10);
 	
@@ -87,14 +87,24 @@ function draw() {
 		node[i].drawOuterNode();
 		// node[i].outerWave();
 	}; 	
-	// fill(35)
-	// noStroke();
-	// ellipse(node6x, node6y, mouseY*2, mouseY*2);
-	// ellipse(node2x, node2y, mouseY/3, mouseY/3);
-	// ellipse(node3x, node3y, mouseY/3, mouseY/3);
-	// ellipse(node4x, node4y, mouseY/3, mouseY/3);
-	// ellipse(node5x, node5y, mouseY/3, mouseY/3);
-	// ellipse(node6x, node6y, mouseY, mouseY);
+	fill(35)
+	noStroke();
+	ellipse(node1x, node1y, mouseY/3, mouseY/3);
+	ellipse(node2x, node2y, mouseY/3, mouseY/3);
+	ellipse(node3x, node3y, mouseY/3, mouseY/3);
+	ellipse(node4x, node4y, mouseY/3, mouseY/3);
+	ellipse(node5x, node5y, mouseY/3, mouseY/3);
+	ellipse(node6x, node6y, mouseY*2, mouseY*2);
+
+	ellipse(nodes[0].x, nodes[0].y, mouseY/9, mouseY/9);
+	ellipse(nodes[1].x, nodes[1].y, mouseY/9, mouseY/9);
+	ellipse(nodes[2].x, nodes[2].y, mouseY/9, mouseY/9);
+	ellipse(nodes[3].x, nodes[3].y, mouseY/9, mouseY/9);
+	ellipse(nodes[4].x, nodes[4].y, mouseY/9, mouseY/9);	
+	ellipse(nodes[5].x, nodes[5].y, mouseY/9, mouseY/9);
+	ellipse(nodes[6].x, nodes[6].y, mouseY/9, mouseY/9);
+	ellipse(nodes[7].x, nodes[6].y, mouseY/9, mouseY/9);
+	
 };
 
 
@@ -118,18 +128,12 @@ function Nodes() {
 		// scale(mouseX,mouseY);
 		// angleMode(DEGREES);
 		// rotate(angle);
-		if (mouseY > 300) {
-		line(this.x,this.y,node1x,node1y);};
-		if (mouseY > 320) {
-		line(this.x,this.y,node2x,node2y);};
-		if (mouseY > 350) {
-		line(this.x,this.y,node3x,node3y);};
-		if (mouseY > 360) {
-		line(this.x,this.y,node4x,node4y);};
-		if (mouseY > 380) {
-		line(this.x,this.y,node5x,node5y);};
-		if (mouseY > 400) {
-		line(this.x,this.y,node6x,node6y);};
+		line(this.x,this.y,node1x,node1y);
+		line(this.x,this.y,node2x,node2y);
+		line(this.x,this.y,node3x,node3y);
+		line(this.x,this.y,node4x,node4y);
+		line(this.x,this.y,node5x,node5y);
+		line(this.x,this.y,node6x,node6y);
 		noStroke();
 	};
 	this.wave = function () {
@@ -152,56 +156,38 @@ function OuterNodes() {
 		strokeWeight(1.75);
 		// angleMode(DEGREES);
 		// rotate(angle);
-		if (mouseY > 10) {
-		line(node1x,node1y,node2x,node2y);};
-		if (mouseY > 20) {
-		line(node2x,node2y,node3x,node3y);};
-		if (mouseY > 30) {
-		line(node3x,node3y,node4x,node4y);};
+		line(node1x,node1y,node2x,node2y);
+		line(node2x,node2y,node3x,node3y);
+		line(node3x,node3y,node4x,node4y);
 		
 		// ADDED VERTEX TO REPLACE MOUSE
-		if (mouseY > 40) {
-		line(node6x,node6y,node1x,node1y);};
-		if (mouseY > 50) {
-		line(node6x,node6y,node4x,node4y);};
+		line(node6x,node6y,node1x,node1y);
+		line(node6x,node6y,node4x,node4y);
 		// stroke(mouseY/2,mouseY/2);
-		if (mouseY > 60) {
-		line(node5x,node5y,node1x,node1y);};
-		if (mouseY > 70) {
-		line(node4x,node4y,node5x,node5y);};
-		if (mouseY > 80) {
-		line(node6x,node6y,node2x,node2y);};
-		if (mouseY > 90) {
-		line(node6x,node6y,node3x,node3y);};
-		if (mouseY > 100) {
-		line(node6x,node6y,node5x,node5y);};
+		line(node5x,node5y,node1x,node1y);
+		line(node4x,node4y,node5x,node5y);
+		line(node6x,node6y,node2x,node2y);
+		line(node6x,node6y,node3x,node3y);
+		line(node6x,node6y,node5x,node5y);
 
 	// VECTORS BORDER POINTS TO BORDER POINTS + MOUSE POINT
 		// stroke(mouseY/2,mouseY/2);
 		// strokeWeight(1.75);
-		if (mouseY > 110) {
-		line(node1x,node1y,node3x,node3y);};
-		if (mouseY > 120) {
-		line(node1x,node1y,node4x,node4y);};
-		if (mouseY > 130) {
-		line(node1x,node1y,node5x,node5y);};
+		line(node1x,node1y,node3x,node3y);
+		line(node1x,node1y,node4x,node4y);
+		line(node1x,node1y,node5x,node5y);
 		// stroke(mouseY/2,mouseY/2);
 		// line(node1x,node1y,mouseX,mouseY);
 
-		if (mouseY > 140) {
-		line(node2x,node2y,node4x,node4y);};
-		if (mouseY > 160) {
-		line(node2x,node2y,node5x,node5y);};
+		line(node2x,node2y,node4x,node4y);
+		line(node2x,node2y,node5x,node5y);
 		// line(node2x,node2y,mouseX,mouseY);
 
-		if (mouseY > 180) {
-		line(node3x,node3y,node1x,node1y);};
-		if (mouseY > 210) {
-		line(node3x,node3y,node5x,node5y);};
+		line(node3x,node3y,node1x,node1y);
+		line(node3x,node3y,node5x,node5y);
 		// line(node3x,node3y,mouseX,mouseY);
 
-		if (mouseY > 230) {
-		line(node4x,node4y,node1x,node1y);};
+		line(node4x,node4y,node1x,node1y);
 		// line(node4x,node4y,mouseX,mouseY);
 
 		// line(node5x,node5y,mouseX,mouseY);
