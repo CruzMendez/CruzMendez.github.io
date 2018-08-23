@@ -78,18 +78,25 @@ body::-webkit-scrollbar-thumb {
 
 .rate-btn {
 	background-color: transparent;
-	font-family: 'Roboto';
+	font-family: 'Roboto', Helvetica;
+	border: 1px solid rgb(153,153,153);
 	color: rgb(10,129,147);
-	font-size: 20px;
-	border: none;
+	font-weight: 300;
+	font-size: 30px;
+	border-radius: 15px;
+	/* border: none; */
 }
 
 .amp-btn {
+	border: 1px solid rgb(153, 153, 153);	
 	background-color: transparent;
-	font-family: 'Roboto';
-	color: rgb(146, 72, 153);
-	font-size: 20px;
-	border: none;
+	font-weight: 300;
+	font-family: 'Roboto', Helvetica;
+	/* color: rgb(146, 72, 153); */
+	color: rgb(10,129,147);	
+	font-size: 30px;
+	/* border: none; */
+	border-radius: 15px;
 }
 
 .enter-name{

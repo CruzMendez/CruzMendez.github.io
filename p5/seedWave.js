@@ -49,6 +49,7 @@ var rectFill = 40;
 var homeRect;
 var cord2;
 var zIndex = 100;
+var newSeed;
 
 
 
@@ -74,10 +75,20 @@ function setup() {
 	rateBtn.mousePressed(rateUp);
 	
 	ampBtn = createButton("Increase Amplitude");
-	ampBtn.position(20,(innerHeight/2)-90);
+	ampBtn.position(20,(innerHeight/2)-110);
 	ampBtn.addClass('amp-btn');
 	ampBtn.mousePressed(ampUp);
+
+	// newSeed = createButton("Add Ellipse");
+	// newSeed.position(20,(innerHeight/2)-160);
+	// newSeed.addClass('amp-btn');
+	// newSeed.mousePressed(addSeed);
 };
+
+function addSeed() {
+	seeds[seedCount-1] = new Seed();
+	seedCount++;
+}
 
 function rateUp() {
 	fRate = fRate * 2;
