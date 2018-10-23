@@ -120,6 +120,7 @@ function draw() {
 	// background(240);
 //	clear();
 	noStroke();
+	frameRate(10);
 	textSize(35);
 	fill(179,114,201,195);
 	noStroke();
