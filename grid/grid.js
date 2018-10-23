@@ -1,168 +1,175 @@
 var canvas;
-var nodeCount = 10;
-var nodeOrigin = 0;
-var nodeID = 0;
-var node = [];
-var nodes = [];
+var seedCount = 30;
+var totalCount = 493;
+var seedOrigin = 0;
+var rows = (innerHeight/(seedCount*.7));
+var seedID = 0;
+var seeds = [];
 var showLine;
 var strokeVis = 0;
 
-var fRate = 12;
+var currentPage;
+var numGen;
+var amp = 1.6
 
+var titleText;
+var titleSubText;
 var bground;
 var title;
 var h1;
 var underline = 255;
 var rectFill = 40;
-var homeRect;
-var cord2;
-var zIndex = 100;
+var newSeed;
+var connect;
+var randSeed;
 
-var node1;
-var node1x = (innerWidth/2) - 110;
-var node1y = 170;
-
-var node2;
-var node2x = (innerWidth/2) + 10;
-var node2y = 120;
-
-var node3;
-var node3x = (innerWidth/2) + 110;
-var node3y = 160;
-
-var node4;
-var node4x = (innerWidth/2) + 160;
-var node4y = (innerHeight/2) - 55;
-
-var node5;
-var node5x = (innerWidth/2) + 60;
-var node5y = (innerHeight/2) - 30;
 
 
 
 function setup() {
-    canvas = createCanvas(innerWidth,innerHeight); 
+    canvas = createCanvas(innerWidth,innerHeight);
     canvas.position(0,0);
-	frameRate(fRate);
-	for (var i=0; i<nodeCount; i++) {
-		nodeOrigin = nodeOrigin + random(0,5);
-		nodes[i] = new Nodes();
-		nodeID++;
+	for (var i=0; i<totalCount; i++) {
+		seedOrigin = seedOrigin + (innerWidth/seedCount);
+		seeds[i] = new Seed();
+		seedID++;
+		if ((seedID+1) == (seedCount)) {
+			rows=rows*2;
+			seedOrigin = 0;
+		}
+		if ((seedID+2) == (seedCount*2)) {
+			seedOrigin = 0;
+			rows=rows*1.5;
+		}
+		if ((seedID+3) == (seedCount*3)) {
+			seedOrigin = 0;
+			rows=rows*1.35;
+		}
+		if ((seedID+4) == (seedCount*4)) {
+			seedOrigin = 0;
+			rows=rows*1.25;
+		}
+		if ((seedID+5) == (seedCount*5)) {
+			seedOrigin = 0;
+			rows=rows*1.21;
+		}
+		if ((seedID+6) == (seedCount*6)) {
+			seedOrigin = 0;
+			rows=rows*1.18;
+		}
+		if ((seedID+7) == (seedCount*7)) {
+			seedOrigin = 0;
+			rows=rows*1.15;
+		}
+		if ((seedID+8) == (seedCount*8)) {
+			seedOrigin = 0;
+			rows=rows*1.13;
+		}
+		if ((seedID+9) == (seedCount*9)) {
+			seedOrigin = 0;
+			rows=rows*1.12;
+		}
+		if ((seedID+10) == (seedCount*10)) {
+			seedOrigin = 0;
+			rows=rows*1.11;
+		}
+		if ((seedID+11) == (seedCount*11)) {
+			seedOrigin = 0;
+			rows=rows*1.1;
+		}
+		if ((seedID+12) == (seedCount*12)) {
+			seedOrigin = 0;
+			rows=rows*1.1;
+		}
+		if ((seedID+13) == (seedCount*13)) {
+			seedOrigin = 0;
+			rows=rows*1.09;
+		}
+		if ((seedID+14) == (seedCount*14)) {
+			seedOrigin = 0;
+			rows=rows*1.09;
+		}
+		if ((seedID+15) == (seedCount*15)) {
+			seedOrigin = 0;
+			rows=rows*1.08;
+		}
+		if ((seedID+16) == (seedCount*16)) {
+			seedOrigin = 0;
+			rows=rows*1.08;
+		}
 	};
-	for (var i=0; i<1; i++) {
-		node[i] = new OuterNodes();
-	}
-	title = createElement('h1','2018 AIA Austin Homes Tour <br /> [Demo]');
-	title.addClass('enter-name');
-	title.position(35,innerHeight-120);
-	
+
+
+	// connect = createElement('p','Click an ellipse to create a connection');
+	// connect.position(20,(innerHeight/2)+40);
+	// connect.addClass('connect-btn');
 };
 
 function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
 };
 
+// function mousePressed() {
+// 	for (var i=0; i < seeds.length; i++) {
+// 		seeds[i].connection();
+// 	};
+// };
+
+
 function draw() {
-	background(35,35,35);
+	// background(240);
+//	clear();
 	noStroke();
-	frameRate(fRate);
-	for (var i=0; i<nodes.length; i++) {
-		nodes[i].drawNode();
-		nodes[i].wave();
-	}; 	
-	for (var i=0; i<node.length; i++) {
-		node[i].drawOuterNode();
-		node[i].outerWave();
-	}; 	
+	textSize(35);
+	fill(179,114,201,195);
+	noStroke();
+	for (var i=0; i<seeds.length; i++) {
+		seeds[i].display();
+		seeds[i].highlight();
+		// seeds[i].connection();
+	};
+	// stroke(random(0,255),random(0,255),random(0,255));
+	// line(random(0,innerWidth),random(0,innerHeight),mouseX,mouseY);
 };
 
 
-//--------------RANDOM NODE CONTRUCTOR-------------//
+//--------------SEED CONTRUCTOR-------------//
 
-function Nodes() {
-	this.inDex = 0 + nodeID;
-	this.amplitude = random(.1,1.9);
-	this.period = 60;
-    this.x = (innerWidth/2) + 30 + nodeOrigin;
-    this.y = (innerHeight/2) - 30 - random(1,150);
-	this.diam = 0;
-	this.nodeStroke = 63;
-
-    this.drawNode = function() {		
-		ellipse(this.x, this.y, this.diam, this.diam);
-		strokeWeight(1.75);
-		stroke(mouseY/2,mouseY/2);
-		line(this.x,this.y,mouseX,mouseY);
-		line(this.x,this.y,node1x,node1y);
-		line(this.x,this.y,node2x,node2y);
-		line(this.x,this.y,node3x,node3y);
-		line(this.x,this.y,node4x,node4y);
-		line(this.x,this.y,node5x,node5y);
-		noStroke();
+function Seed() {
+	this.inDex = 0 + seedID;
+	this.x = seedOrigin;
+	this.y = rows;
+	this.diam = 15;
+	this.seedStroke = 63;
+	this.display = function() {
+		// fill(10,129,147,150);
+		fill(255);
+        ellipse(this.x, this.y, this.diam, this.diam);
 	};
-	this.wave = function () {
-		this.y = this.y + this.amplitude * sin((frameCount/this.period)*TWO_PI);
+	this.highlight = function() {
+		var d = dist(mouseX,mouseY, this.x, this.y);
+		if (d < 75) {
+			noStroke();
+			fill(mouseX/3,mouseY/3,random(0,255));
+			ellipse(this.x, this.y, 40, 40);
+		};
+		if (d < 125) {
+			noStroke();
+			fill(mouseX/3,mouseY/3,random(0,255));
+			ellipse(this.x, this.y, 10, 10);
+		};
+		if (d < 30) {
+			noStroke();
+			fill(mouseX/3,mouseY/3,random(0,255));
+			ellipse(this.x, this.y, (innerWidth/20),(innerWidth/20));
+		};
 	};
+	// this.connection = function () {
+	// 	var s = random(0,seedCount);
+	// 	var d = dist(mouseX,mouseY, this.x, this.y);
+	// 	if (d < 14) {
+	// 		stroke(200);
+	// 		line(seeds[s].x,seeds[s].y,seeds[s].x,seeds[s].y);
+	// 	};
+	// };
 };
-
-//--------------OUTER NODE CONTRUCTOR-------------//
-
-function OuterNodes() {
-	this.inDex = 0 + nodeID;
-	this.amplitude = random(.4,1.4);
-	this.period = 100;
-	this.diam = 0;
-	this.nodeStroke = 63;
-
-    this.drawOuterNode = function() {	
-	// BORDER	
-		stroke(255);
-		strokeWeight(1.75);
-		line(node1x,node1y,node2x,node2y);
-		line(node2x,node2y,node3x,node3y);
-		line(node3x,node3y,node4x,node4y);
-		line(node4x,node4y,node5x,node5y);
-		line(node5x,node5y,node1x,node1y);
-
-	// VECTORS BORDER POINTS TO BORDER POINTS + MOUSE POINT
-		stroke(mouseY/2,mouseY/2);
-		strokeWeight(1.75);
-		line(node1x,node1y,node3x,node3y);
-		line(node1x,node1y,node4x,node4y);
-		line(node1x,node1y,node5x,node5y);
-		stroke(mouseY/2,mouseY/2);
-		line(node1x,node1y,mouseX,mouseY);
-
-		line(node2x,node2y,node4x,node4y);
-		line(node2x,node2y,node5x,node5y);
-		line(node2x,node2y,mouseX,mouseY);
-
-		line(node3x,node3y,node1x,node1y);
-		line(node3x,node3y,node5x,node5y);
-		line(node3x,node3y,mouseX,mouseY);
-
-		line(node4x,node4y,node1x,node1y);
-		line(node4x,node4y,mouseX,mouseY);
-
-		line(node5x,node5y,mouseX,mouseY);
-	};
-
-	this.outerWave = function () {
-	// BORDER MOVEMENT
-		node1x = node1x + this.amplitude * sin((frameCount/this.period)*TWO_PI);
-		// node1y = node1y + this.amplitude * sin((frameCount/this.period)*TWO_PI);
-
-		// node2x = node2x + this.amplitude * sin((frameCount/this.period)*TWO_PI);
-		node2y = node2y + this.amplitude * sin((frameCount/this.period)*TWO_PI);
-
-		node3x = node3x + this.amplitude * sin((frameCount/this.period)*TWO_PI);
-		node3y = node3y + this.amplitude * sin((frameCount/this.period)*TWO_PI);
-
-		node4x = node4x + this.amplitude * sin((frameCount/this.period)*TWO_PI);
-		// node4y = node4y + this.amplitude * sin((frameCount/this.period)*TWO_PI);
-
-		// node5x = node5x + this.amplitude * sin((frameCount/this.period)*TWO_PI);
-		node5y = node5y + this.amplitude * sin((frameCount/this.period)*TWO_PI);
-	};
-};
-
