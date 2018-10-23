@@ -1,111 +1,31 @@
 body{
-  background-color: #010723;
+  /* background-color: #010723; */
   font-family: 'Roboto', Helvetica;
   margin: 0 auto;
   color:white;
 }
 
-.modal1, .modal2, .modal3, .modal4,
-.modal5, .modal6, .modal7, .modal8, .modal9{
-	height: 10%;
-	width: 75%;
-	position: absolute;
-	background-color: darkcyan;
-	border-radius: 20px;
-	text-align: center;
-	margin-left: 12.5%;
-	font-family: 'Roboto';
-	align-self: center;
-	font-size: 25px;
-	letter-spacing: 15px;
-	box-shadow: 15px 15px 40px darkblue;
-}
-
-.modal1, .modal2{
-	margin-top: 40%;
-}
-
-.modal3{
-	margin-top: 40%;
-}
-
-.modal4{
-	margin-top: 40%;
-}
-
-.modal5{
-	margin-top: 40%;
-	color: yellow;
-	border: 2px dashed yellow;
-	letter-spacing: 10px;
-}
-
-.modal6{
-	margin-top: 40%;
-}
-
-.modal7{
-	margin-top: 40%;
-}
-
-.modal8{
-	margin-top: 40%;
-}
-.modal9{
-	margin-top: 40%;
-}
-
-canvas {
-	z-index: -10;
-/*	background-color: #00041c;*/
-}
-
-/*	SCROLL BAR STYLE:*/
-
-body::-webkit-scrollbar {
-    width: 3px;
-}
-
-body::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(63,0.9);
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: white;
-  outline: 1px solid slategrey;
-}
 
 
-.rate-btn,.amp-btn, .add-btn {
-	background-color: inherit;
-	font-family: 'Roboto', Helvetica;
-	border: 1px solid rgb(153,153,153);
-	/* color: rgb(10,129,147); */
-  /* color: #010723; */
-  color: white;
-  padding: 15px;
-	font-weight: 300;
-	font-size: 20px;
-	border-radius: 20px;
-	/* border: none; */
-}
 
-/* .amp-btn, .add-btn, {
-	border: 1px solid rgb(153, 153, 153);
+
+
+
+.rate-btn {
 	background-color: transparent;
-	font-weight: 300;
-	font-family: 'Roboto', Helvetica;
-	color: rgb(10,129,147);
-	font-size: 30px;
-	border-radius: 15px;
-} */
-
-/* .connect-btn {
-	font-weight: 300;
-	font-family: 'Roboto', Helvetica;
+	font-family: 'Roboto';
 	color: rgb(10,129,147);
 	font-size: 20px;
-} */
+	border: none;
+}
+
+.amp-btn {
+	background-color: transparent;
+	font-family: 'Roboto';
+	color: rgb(146, 72, 153);
+	font-size: 20px;
+	border: none;
+}
 
 .enter-name{
 	font-family: 'Roboto';
@@ -153,7 +73,7 @@ body::-webkit-scrollbar-thumb {
 /*---PAGE 0 - SERVICES-------------------*/
 #services{
 	position: absolute;
-	height: 50%;
+	height: 50%; 
 	width: 100%;
 	margin: 20px auto;
 	flex-wrap: wrap;
@@ -212,7 +132,7 @@ body::-webkit-scrollbar-thumb {
 
 #services-behind{
 	position: absolute;
-	height: 50%;
+	height: 50%; 
 	width: 100%;
 	margin: 20px auto;
 	flex-wrap: wrap;
@@ -270,7 +190,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 @media only screen and (min-width: 1100px) {
-
+	
 }
 
 .purple{
@@ -369,7 +289,7 @@ body::-webkit-scrollbar-thumb {
 
 /*
 .twoD-text-animate {
-	-webkit-transition: letter-spacing 1s ease-in-out;  For Safari 3.1 to 6.0
+	-webkit-transition: letter-spacing 1s ease-in-out;  For Safari 3.1 to 6.0 
     transition: letter-spacing 1s ease-in-out;
 }
 */
@@ -388,7 +308,7 @@ body::-webkit-scrollbar-thumb {
 	position: absolute;
 	overflow: hidden;
 	width: 100%;
-
+	
 }
 
 .twoD-text-wrapper {
@@ -434,7 +354,7 @@ body::-webkit-scrollbar-thumb {
 	height: 300px;
 /*	width: 40%;*/
 	overflow: hidden;
-
+	
 }
 
 .model-text-wrap {
@@ -526,7 +446,7 @@ body::-webkit-scrollbar-thumb {
 	background-color: deeppink;
 	-webkit-transition: background-color .2s ease-in; /* For Safari 3.1 to 6.0 */
     transition: background-color .2s ease-in;
-
+	
 }
 
 .info-data:hover {
@@ -604,12 +524,13 @@ body::-webkit-scrollbar-thumb {
 #portfolio::-webkit-scrollbar {
     width: 3px;
 }
-
+ 
 #portfolio::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(63,0.9);
 }
-
+ 
 #portfolio::-webkit-scrollbar-thumb {
   background-color: white;
   outline: 1px solid slategrey;
 }
+
